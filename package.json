@@ -1,0 +1,22 @@
+{
+  "name": "dev-ops-cli",
+  "version": "1.0.0",
+  "description": "Guided setup of AWS Stack for the QBA Team.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "aws",
+    "rocket",
+    "setup",
+    "qba",
+    "stack",
+    "devops",
+    "dev-ops",
+    "dev",
+    "ops"
+  ],
+  "author": "TODO",
+  "license": "MIT"
+}

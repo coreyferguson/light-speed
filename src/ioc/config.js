@@ -16,4 +16,6 @@ ioc.operations = [
 ];
 
 ioc.cache = require('../cache');
+ioc.inquirer = require('inquirer');
 ioc.logger = require('../logger');
+

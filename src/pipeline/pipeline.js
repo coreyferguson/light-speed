@@ -1,6 +1,5 @@
 
 const bluebird = require('bluebird');
-const inquirer = require('inquirer');
 const ioc = require('../ioc');
 
 const log = ioc.logger('pipeline');
@@ -24,12 +23,13 @@ class Pipeline {
     if (!cachedAnswers) {
       log.debug(`Inquiring into '${label}' operation`);
       return operation.inquire(cachedAnswers).then(questions => {
-        return inquirer.prompt(questions).then(answers => {
+        return ioc.inquirer.prompt(questions).then(answers => {
           ioc.cache.put(label, answers);
         });
       });
     } else {
       log.debug(`Operation '${label}' already has cached answers`);
+      return Promise.resolve(cachedAnswers);
     }
   }
 

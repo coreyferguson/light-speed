@@ -13,5 +13,6 @@ ioc.operations = [
 ];
 
 ioc.cache = require('./stubs/cacheStub');
+ioc.inquirer = require('./stubs/inquirerStub');
 ioc.logger = require('./stubs/loggerStub');
 

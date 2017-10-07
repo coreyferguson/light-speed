@@ -3,17 +3,23 @@ const bluebird = require('bluebird');
 const inquirer = require('inquirer');
 const ioc = require('../ioc');
 
+const log = ioc.logger('pipeline');
+
 class Pipeline {
 
   constructor(options) {
     options = options || {};
-    this.operations = options.operations || ioc.operations;
   }
 
   run() {
-    return bluebird.mapSeries(this.operations, operation => {
-      return operation.inquire().then(questions => {
-        return inquirer.prompt(questions);
+    return bluebird.mapSeries(ioc.operations, operation => {
+      const label = operation.getLabel();
+      log.info(`Processing: ${label}`);
+      const cachedAnswers = ioc.cache.fetch(label);
+      return operation.inquire(cachedAnswers).then(questions => {
+        return inquirer.prompt(questions).then(answers => {
+          ioc.cache.put(label, answers);
+        });
       });
     });
   }

@@ -1,7 +1,12 @@
 
-const logger = require('../../logger')('aws-credentials');
+const label = 'aws-credentials';
+const logger = require('../../logger')(label);
 
 class AwsCredentials {
+
+  getLabel() {
+    return label;
+  }
 
   inquire(cachedAnswers) {
     cachedAnswers = cachedAnswers || {};

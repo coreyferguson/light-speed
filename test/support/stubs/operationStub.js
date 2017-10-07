@@ -1,7 +1,8 @@
 
 const generate = () => {
   return {
-    inquire: () => Promise.resolve([])
+    inquire: () => Promise.resolve([]),
+    getLabel: () => 'label'
   };
 }
 

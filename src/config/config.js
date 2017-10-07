@@ -33,7 +33,6 @@ class Config {
   getOverridesConfig() {
     try {
       const fullPath = path.resolve.apply(null, this.overridesConfigPathSegments);
-      debugger;
       fs.statSync(fullPath);
     } catch (e) {
       if (e.code === 'ENOENT') {

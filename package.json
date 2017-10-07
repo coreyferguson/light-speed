@@ -4,6 +4,7 @@
   "description": "Guided setup of AWS Stack for the QBA Team.",
   "main": "src/index.js",
   "scripts": {
+    "eslint": "./node_modules/.bin/eslint src/**/*.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -18,5 +19,8 @@
     "ops"
   ],
   "author": "TODO",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^4.8.0"
+  }
 }

@@ -5,7 +5,8 @@ class AwsCredentials {
 
   inquire(cachedAnswers) {
     cachedAnswers = cachedAnswers || {};
-    logger.log('debug', 'Hello there');
+    logger.log('info', 'This is an info message');
+    logger.log('debug', 'This is a debug message');
     return Promise.resolve([
       {
         type: 'input',

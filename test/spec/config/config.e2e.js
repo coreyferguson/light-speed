@@ -21,4 +21,20 @@ describe('config e2e tests', () => {
     expect(nconf.get('key3')).to.equal('override value 3');
   });
 
+  it('load non-existant overrides config', () => {
+    const config = new Config({
+      overridesConfigPathSegments: [__dirname, 'no-such-config.yml']
+    });
+    const overrides = config.getOverridesConfig();
+    expect(overrides).to.eql({});
+  });
+
+  it('load existing overrides config', () => {
+    const config = new Config({
+      overridesConfigPathSegments: [__dirname, 'test-override-config.yml']
+    });
+    const overrides = config.getOverridesConfig();
+    expect(overrides).to.have.property('key2', 'override value 2');
+  });
+
 });

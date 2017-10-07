@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "./node_modules/.bin/mocha test/spec/**/*.js"
   },
   "keywords": [
     "aws",
@@ -21,6 +21,7 @@
   "author": "TODO",
   "license": "MIT",
   "devDependencies": {
-    "eslint": "^4.8.0"
+    "eslint": "^4.8.0",
+    "mocha": "^4.0.1"
   }
 }

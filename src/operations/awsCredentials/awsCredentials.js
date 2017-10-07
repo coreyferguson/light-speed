@@ -39,6 +39,14 @@ class AwsCredentials {
     ]);
   }
 
+  state(cachedState) {
+    return Promise.resolve();
+  }
+
+  execute(state) {
+    return Promise.resolve();
+  }
+
 }
 
 module.exports = new AwsCredentials();

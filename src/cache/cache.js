@@ -36,7 +36,7 @@ class Cache {
       fs.statSync(fullPath);
     } catch (e) {
       if (e.code === 'ENOENT') {
-        return {};
+        return undefined;
       } else {
         throw e;
       }

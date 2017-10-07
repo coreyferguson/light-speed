@@ -4,6 +4,7 @@
   "description": "Guided setup of AWS Stack for the QBA Team.",
   "main": "src/index.js",
   "scripts": {
+    "start": "node src/index.js",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
     "test": "./node_modules/.bin/mocha test/spec/**/*.js",
     "watch": "npm run test -- --watch",
@@ -29,5 +30,9 @@
     "mocha": "^4.0.1",
     "sinon": "^4.0.1",
     "sinon-chai": "^2.14.0"
+  },
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "inquirer": "^3.3.0"
   }
 }

@@ -1,4 +1,6 @@
 
+const bluebird = require('bluebird');
+const inquirer = require('inquirer');
 const ioc = require('../ioc');
 
 class Pipeline {
@@ -9,11 +11,10 @@ class Pipeline {
   }
 
   run() {
-    return new Promise(resolve => {
-      this.operations.forEach(operation => {
-        operation.inquire();
+    return bluebird.mapSeries(this.operations, operation => {
+      return operation.inquire().then(questions => {
+        return inquirer.prompt(questions);
       });
-      resolve();
     });
   }
 

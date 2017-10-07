@@ -6,7 +6,7 @@ const ioc = require('./container');
  */
 
 ioc.operations = [
-  require('../example-operation')
+  require('../operations/awsCredentials')
 ];
 
 /**

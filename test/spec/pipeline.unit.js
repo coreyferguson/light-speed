@@ -27,7 +27,7 @@ describe('pipeline unit tests', () => {
     it('inquires all operations', () => {
       const spies = pipeline.operations.map(operation => {
         return sandbox.stub(operation, 'inquire')
-          .returns(Promise.resolve());
+          .returns(Promise.resolve([]));
       });
       return pipeline.run().then(() => {
         spies.forEach(spy => {

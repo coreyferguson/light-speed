@@ -1,7 +1,7 @@
 
 const generate = () => {
   return {
-    inquire: () => {}
+    inquire: () => Promise.resolve([])
   };
 }
 

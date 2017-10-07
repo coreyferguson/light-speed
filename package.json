@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
-    "test": "./node_modules/.bin/mocha test/spec/**/*.js",
+    "test": "./node_modules/.bin/mocha --recursive test/spec",
     "watch": "npm run test -- --watch",
     "debug": "npm run watch -- --debug --inspect"
   },
@@ -33,7 +33,9 @@
   },
   "dependencies": {
     "bluebird": "^3.5.1",
+    "dev-env-lib": "^1.1.2",
     "inquirer": "^3.3.0",
+    "os": "^0.1.1",
     "winston": "^3.0.0-rc0"
   }
 }

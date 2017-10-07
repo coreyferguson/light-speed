@@ -5,8 +5,7 @@ class AwsCredentials {
 
   inquire(cachedAnswers) {
     cachedAnswers = cachedAnswers || {};
-    logger.log('info', 'This is an info message');
-    logger.log('debug', 'This is a debug message');
+    logger.log('debug', 'Prompting for aws credentials.');
     return Promise.resolve([
       {
         type: 'input',

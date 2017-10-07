@@ -1,4 +1,7 @@
 
+/**
+ * Configures logger to output to terminal and a debug log.
+ */
 
 const { createLogger, format, transports } = require('winston');
 const { combine, timestamp, label, printf } = format;
@@ -39,3 +42,5 @@ module.exports = l => {
     ]
   });
 };
+
+module.exports.debugFilePath = debugFilePath;

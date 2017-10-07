@@ -19,7 +19,7 @@ class Pipeline {
    */
   run() {
     return bluebird.mapSeries(ioc.operations, operation => {
-      log.info(`Processing: ${operation.getLabel()}`);
+      log.info(`Processing operation: ${operation.getLabel()}`);
       return this._inquire(operation).then(answers => {
         return this._state(operation);
       }).then(state => {

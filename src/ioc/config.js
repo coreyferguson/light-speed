@@ -8,9 +8,3 @@ const ioc = require('./container');
 ioc.operations = [
   require('../operations/awsCredentials')
 ];
-
-/**
- * Configuration of other singletons
- */
-
-require('../logging/config');

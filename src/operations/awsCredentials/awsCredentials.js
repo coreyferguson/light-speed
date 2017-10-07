@@ -1,8 +1,11 @@
 
+const logger = require('../../logger')('aws-credentials');
+
 class AwsCredentials {
 
   inquire(cachedAnswers) {
     cachedAnswers = cachedAnswers || {};
+    logger.log('debug', 'Hello there');
     return Promise.resolve([
       {
         type: 'input',

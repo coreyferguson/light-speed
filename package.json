@@ -33,6 +33,7 @@
   },
   "dependencies": {
     "bluebird": "^3.5.1",
-    "inquirer": "^3.3.0"
+    "inquirer": "^3.3.0",
+    "winston": "^3.0.0-rc0"
   }
 }

@@ -10,6 +10,13 @@ class Pipeline {
     options = options || {};
   }
 
+  /**
+   * Run the pipeline, iterating through one operation at a time.
+   * For each operation:
+   *   1) inquire for user input
+   *   2) fetch current state
+   *   3) execute
+   */
   run() {
     return bluebird.mapSeries(ioc.operations, operation => {
       log.info(`Processing: ${operation.getLabel()}`);
@@ -17,6 +24,10 @@ class Pipeline {
     });
   }
 
+  /**
+   * Fetches inquirer questions from the given operation.
+   * Answers will be cached and future inquiries will not be made to the operation.
+   */
   _inquire(operation) {
     const cacheLabel = `${operation.getLabel()}-inquire`;
     const cachedAnswers = ioc.cache.fetch(cacheLabel);
@@ -33,6 +44,12 @@ class Pipeline {
     }
   }
 
+  /**
+   * Fetches state from the given operation.
+   * Cached state will be given to the operation to use at the operation's
+   * discretion.
+   * State returned from operation will be cached for future reference.
+   */
   _state(operation) {
     const cacheLabel = `${operation.getLabel()}-state`;
     const cachedState = ioc.cache.fetch(cacheLabel);

@@ -1,6 +1,5 @@
 
 const fs = require('fs');
-const logger = require('../logger')('cache');
 const nconf = require('nconf');
 const os = require('os');
 const path = require('path');

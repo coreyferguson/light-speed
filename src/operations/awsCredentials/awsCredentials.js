@@ -39,11 +39,11 @@ class AwsCredentials {
     ]);
   }
 
-  state(cachedState) {
+  state(answers, cachedState) {
     return Promise.resolve();
   }
 
-  execute(state) {
+  execute(answers, state) {
     return Promise.resolve();
   }
 

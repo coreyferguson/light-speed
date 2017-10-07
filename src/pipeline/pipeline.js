@@ -6,10 +6,6 @@ const log = ioc.logger('pipeline');
 
 class Pipeline {
 
-  constructor(options) {
-    options = options || {};
-  }
-
   /**
    * Run the pipeline, iterating through one operation at a time.
    * For each operation:
@@ -21,9 +17,9 @@ class Pipeline {
     return bluebird.mapSeries(ioc.operations, operation => {
       log.info(`Processing operation: ${operation.getLabel()}`);
       return this._inquire(operation).then(answers => {
-        return this._state(operation);
-      }).then(state => {
-        return operation.execute(state);
+        return this._state(operation, answers).then(state => {
+          return operation.execute(answers, state);
+        });
       });
     });
   }
@@ -54,11 +50,11 @@ class Pipeline {
    * discretion.
    * State returned from operation will be cached for future reference.
    */
-  _state(operation) {
+  _state(operation, answers) {
     const cacheLabel = `${operation.getLabel()}-state`;
     const cachedState = ioc.cache.fetch(cacheLabel);
     log.debug(`Checking state of '${operation.getLabel()}' operation`);
-    return operation.state(cachedState).then(newState => {
+    return operation.state(answers, cachedState).then(newState => {
       if (newState) ioc.cache.put(cacheLabel, newState);
       return newState;
     });

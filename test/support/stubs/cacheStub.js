@@ -1,7 +1,5 @@
 
 module.exports = {
-  fetch: label => {
-    return {};
-  },
+  fetch: label => {},
   put: (label, item) => {}
 };

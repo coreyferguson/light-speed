@@ -37,4 +37,22 @@ describe('pipeline unit tests', () => {
 
   });
 
+  describe('pipeline._state()', () => {
+
+    it('fetch state with no cache', () => {
+      const operation = generateOperation();
+      sandbox.stub(operation, 'state').returns(Promise.resolve());
+      return pipeline._state(operation);
+    });
+
+    it('fetch state with cache', () => {
+      const operation = generateOperation();
+      sandbox.stub(ioc.cache, 'fetch').returns({key1: 'value1'});
+      const spy = sandbox.stub(operation, 'state').returns(Promise.resolve());
+      pipeline._state(operation);
+      expect(spy).to.be.calledWith({key1: 'value1'});
+    });
+
+  });
+
 });

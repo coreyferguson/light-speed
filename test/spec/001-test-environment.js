@@ -1,5 +1,5 @@
 
-const { expect } = require('../support/testUtils');
+const { expect, sinon } = require('../support/testUtils');
 
 describe('test environment', () => {
 
@@ -15,6 +15,13 @@ describe('test environment', () => {
   it('chai-as-expected', () => {
     return expect(new Promise(resolve => setTimeout(resolve, 20)))
       .to.eventually.be.fulfilled;
+  });
+
+  it('sinon + sinon-chai', () => {
+    const spy = sinon.spy();
+    spy();
+    spy();
+    expect(spy).to.have.been.calledTwice;
   });
 
 });

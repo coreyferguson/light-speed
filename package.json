@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node src/index.js",
     "eslint": "./node_modules/.bin/eslint src/**/*.js",
+    "pretest": "npm run eslint",
     "test": "./node_modules/.bin/mocha --recursive test/spec",
     "watch": "npm run test -- --watch",
     "debug": "npm run watch -- --debug --inspect"

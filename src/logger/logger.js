@@ -8,7 +8,6 @@ const { combine, timestamp, label, printf } = format;
 
 const ioc = require('../ioc');
 const nconf = require('nconf');
-const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 

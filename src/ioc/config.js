@@ -5,7 +5,7 @@ const ioc = require('./container');
  * IOC initializers
  */
 
-ioc.config = require('../config')
+ioc.config = require('../config');
 ioc.config.initialize();
 
 /**

@@ -7,7 +7,7 @@ Order of precedence:
 
 ## 1. User overrides 
 
-Located in `~/.dev-ops-cli/overrides.yml`
+Located in `~/.light-speed/overrides.yml`
 
 ## 2. Environment variables
 

@@ -5,7 +5,7 @@ Logs to terminal and debug log.
 
 Log levels above `info` are sent to terminal by default. You can override with the `logLevel` argument.
 
-Log levels above `debug` are always appended to `~/.dev-ops.cli/debug.log`. This file is cleared before every run.
+Log levels above `debug` are always appended to `~/.light-speed/debug.log`. This file is cleared before every run.
 
 ## Usage
 

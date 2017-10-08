@@ -1,5 +1,5 @@
 {
-  "name": "dev-ops-cli",
+  "name": "@qba/light-speed",
   "version": "1.0.0",
   "description": "Guided setup of AWS Stack for the QBA Team.",
   "main": "src/index.js",
@@ -20,7 +20,11 @@
     "devops",
     "dev-ops",
     "dev",
-    "ops"
+    "ops",
+    "light",
+    "speed",
+    "lightspeed",
+    "light-speed"
   ],
   "author": "TODO",
   "license": "MIT",

@@ -11,7 +11,7 @@ class Config {
     options = options || {};
     this.defaultConfigPathSegments = options.defaultConfigPathSegments ||
       [__dirname, 'default-config.yml'];
-    this.userConfigPath = path.resolve(os.homedir(), '.dev-ops-cli');
+    this.userConfigPath = path.resolve(os.homedir(), '.light-speed');
     this.overridesConfigPathSegments = options.overridesConfigPathSegments ||
       [this.userConfigPath, '/overrides.yml'];
   }

@@ -49,8 +49,11 @@ describe('pipeline unit tests', () => {
       const operation = generateOperation();
       sandbox.stub(ioc.cache, 'fetch').returns({key1: 'value1'});
       const spy = sandbox.stub(operation, 'state').returns(Promise.resolve());
-      pipeline._state(operation);
-      expect(spy).to.be.calledWith({key1: 'value1'});
+      pipeline._state(operation, {keyA: 'valueA'});
+      expect(spy).to.be.calledWith(
+        {keyA: 'valueA'}, // answers
+        {key1: 'value1'}  // state
+      );
     });
 
   });

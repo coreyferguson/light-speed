@@ -6,17 +6,14 @@
 const { createLogger, format, transports } = require('winston');
 const { combine, timestamp, label, printf } = format;
 
+const ioc = require('../ioc');
 const nconf = require('nconf');
 const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 
 // debug logs
-const debugFilePath = path.resolve(
-  os.homedir(),
-  nconf.get('userConfigFolderName'),
-  'debug.log'
-);
+const debugFilePath = path.resolve(ioc.config.userConfigPath, 'debug.log');
 
 // clear existing debug logs
 spawnSync('rm', [debugFilePath]);

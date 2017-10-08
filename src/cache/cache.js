@@ -1,16 +1,12 @@
 
+const ioc = require('../ioc');
+
 const fs = require('fs');
-const nconf = require('nconf');
-const os = require('os');
 const path = require('path');
 const { spawnSync } = require('child_process');
 const { yaml } = require('dev-env-lib');
 
-const cacheBasePath = path.resolve(
-  os.homedir(),
-  nconf.get('userConfigFolderName'),
-  'cache'
-);
+const cacheBasePath = path.resolve(ioc.config.userConfigPath, 'cache');
 
 class Cache {
 

@@ -9,8 +9,11 @@ class Config {
 
   constructor(options) {
     options = options || {};
-    this.defaultConfigPathSegments = options.defaultConfigPathSegments || [__dirname, 'default-config.yml'];
-    this.overridesConfigPathSegments = options.overridesConfigPathSegments || [os.homedir(), '.dev-ops-cli/overrides.yml'];
+    this.defaultConfigPathSegments = options.defaultConfigPathSegments ||
+      [__dirname, 'default-config.yml'];
+    this.userConfigPath = path.resolve(os.homedir(), '.dev-ops-cli');
+    this.overridesConfigPathSegments = options.overridesConfigPathSegments ||
+      [this.userConfigPath, '/overrides.yml'];
   }
 
   initialize() {

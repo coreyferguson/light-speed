@@ -3,5 +3,30 @@
 
 Hierarchical configuration using [nconf](https://github.com/indexzero/nconf).
 
-Loads [`./default-config.yml`](./default-config.yml) by default. User override values supplied in [`~/.dev-ops-cli/overrides.yml`]
+Order of precedence:
+
+## 1. User overrides 
+
+Located in `~/.dev-ops-cli/overrides.yml`
+
+## 2. Environment variables
+
+Set log level with environment variable.
+
+```bash
+export logLevel=debug
+npm start
+```
+
+## 3. Arguments
+
+```bash
+npm start -- --logLevel=debug
+```
+
+## 4. Defaults
+
+Located in [`./default-config.yml`](./default-config.yml).
+
+
 
